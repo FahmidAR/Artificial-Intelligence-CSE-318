@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Vector;
 
 public class State {
 
@@ -182,7 +183,7 @@ public class State {
             }
             else if(!blankEvenRow()&&invertionEven())
             {
-                return false;
+                return true;
             }
             else
             {
@@ -204,7 +205,10 @@ public class State {
 
                 if (this.state[i][ii] == -1) {
 
-                    if(i%2==0)
+                    int p = this.number-i;
+                    //System.out.println("Blank row = "+p);
+
+                    if(this.number-i%2==0)
                     {
                         return true;
                     }
@@ -222,36 +226,29 @@ public class State {
     Boolean invertionEven()
     {
         int inversionTotal = 0;
+        Vector<Integer> all = new Vector<>();
 
         for (int i = 0; i < this.number; i++) {
             for (int ii = 0; ii < this.number; ii++) {
 
                 if(this.state[i][ii]!=-1) {
-
-                    Boolean firstTime = true;
-                    int current = this.state[i][ii];
-
-                    for (int j = i; j < this.number; j++) {
-                        for (int jj = ii; jj < this.number; jj++) {
-
-                            if (firstTime) {
-                                firstTime = false;
-                                continue;
-                            }
-
-                            if (this.state[j][jj]<current&&this.state[j][jj]!=-1)
-                            {
-                                inversionTotal++;
-                            }
-
-                        }
-                    }
-
+                    all.add(this.state[i][ii]);
                 }
-
 
             }
         }
+
+        for(int i = 0 ;i<all.size();i++)
+        {
+            for(int ii = i+1 ;ii<all.size();ii++)
+            {
+                if(all.get(ii)<all.get(i))
+                {
+                    inversionTotal++;
+                }
+            }
+        }
+        System.out.println("Inversion Total = "+inversionTotal);
 
         if(inversionTotal%2==0)
         {
