@@ -88,12 +88,38 @@ public class Puzzle {
         if (initialState.Solvable()) {
             System.out.println("\n## The Puzzle is Solvable ##\n");
 
-            System.out.println("## Using A * with Hamming Heauristic ##");
-            aStarAlgo(initialState,goalState,new Context(new Hamming()));
-            System.out.println("\n## Using A * with Hamming Manhattan ##");
-            aStarAlgo(initialState,goalState,new Context(new Manhattan()));
-            System.out.println("\n## Using A * with Hamming LinearConflict ##");
-            aStarAlgo(initialState,goalState,new Context(new LinearConflict()));
+            System.out.println("## Press 1 for  Hamming ##");
+            System.out.println("## Press 2 for Manhattan ##");
+            System.out.println("## Press 3 for LinearConflict ##");
+            System.out.println("## Press other for ALL ##");
+            System.out.print("## Enter Choice = ");
+            int userChoose = userInput3.nextInt();
+
+            if(userChoose==1)
+            {
+                System.out.println("\n## Using A * with Hamming Heauristic ##");
+                aStarAlgo(initialState,goalState,new Context(new Hamming()));
+            }
+            else if(userChoose==2)
+            {
+                System.out.println("\n## Using A * with Manhattan Heauristic##");
+                aStarAlgo(initialState,goalState,new Context(new Manhattan()));
+            }
+            else if(userChoose==3)
+            {
+                System.out.println("\n## Using A * with LinearConflict Heauristic##");
+                aStarAlgo(initialState,goalState,new Context(new LinearConflict()));
+            }
+            else
+            {
+                System.out.println("\n## Using A * with Hamming Heauristic ##");
+                aStarAlgo(initialState,goalState,new Context(new Hamming()));
+                System.out.println("\n## Using A * with Hamming Manhattan ##");
+                aStarAlgo(initialState,goalState,new Context(new Manhattan()));
+                System.out.println("\n## Using A * with Hamming LinearConflict ##");
+                aStarAlgo(initialState,goalState,new Context(new LinearConflict()));
+            }
+
 
         } else {
             System.out.println("\n## The Puzzle is Un-Solvable ##\n");

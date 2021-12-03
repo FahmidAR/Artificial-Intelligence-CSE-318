@@ -206,9 +206,10 @@ public class State {
                 if (this.state[i][ii] == -1) {
 
                     int p = this.number-i;
-                    //System.out.println("Blank row = "+p);
+                    //System.out.println("Blank row = "+i);
+                    //System.out.println("K = "+this.number);
 
-                    if(this.number-i%2==0)
+                    if((this.number-i)%2==0)
                     {
                         return true;
                     }
