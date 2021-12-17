@@ -55,28 +55,6 @@ public class State {
 
     }
 
-    public int Hamming()
-    {
-        int realValue = 1;
-        int HammingValue = 0;
-
-        for (int i = 0; i < this.number; i++) {
-            for (int ii = 0; ii < this.number; ii++) {
-
-                if(this.state[i][ii]!=-1)
-                {
-                    if(this.state[i][ii]!= realValue)
-                    {
-                        HammingValue++;
-                    }
-                    realValue++;
-                }
-            }
-        }
-
-        return HammingValue;
-    }
-
     public State downChild()
     {
         State temp = new State(this);
@@ -335,9 +313,5 @@ public class State {
         System.out.println();
 
     }
-
-
-
-
 
 }
