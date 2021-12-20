@@ -5,6 +5,9 @@ public class State {
     static final int totalBlock = 14;
     static final int totalBlockMid = 7;
 
+    int additionalMoveUp = 0;
+    int additionalMoveDown = 0;
+
     int binsNum [];
 
     public State() {
@@ -199,9 +202,95 @@ public class State {
         }
     }
 
+    int currentCaptureDown()
+    {
+        int capMax =0;
+
+        for(int k=1 ; k<this.totalBlockMid ; k++)
+        {
+            int loopCount = this.binsNum[k];
+
+            for(int i=1;i<=loopCount;i++)
+            {
+                int index = (k+i)%totalBlock;
+                if (index==0)
+                {
+                    loopCount++;
+                }
+            }
+
+            int lastMove = (k+loopCount)%this.totalBlock;
+
+            if(lastMove<totalBlockMid&&lastMove>0)
+            {
+                if(this.binsNum[lastMove]==1||lastMove==k)
+                {
+                    if(this.binsNum[this.totalBlock-lastMove]>capMax)
+                    {
+                        capMax=this.binsNum[this.totalBlock-lastMove];
+                    }
+                }
+            }
+
+        }
+        return capMax;
+    }
+
     boolean isGameOver() {
         if((this.binsNum[0]+this.binsNum[this.totalBlockMid])==48) return true;
         else return false;
+    }
+
+    int moveUpStorage() {
+        int antiSum = 0;
+        for (int i=this.totalBlockMid+1;i<this.totalBlock;i++)
+        {
+            if(this.binsNum[i]!=0)
+            {
+                antiSum++;
+            }
+        }
+        return antiSum;
+    }
+
+    int howCloseIwinStone() {
+
+        int ret = 0;
+        if(this.binsNum[this.totalBlockMid]<25)
+        {
+            ret = this.binsNum[this.totalBlockMid]-25;
+        }
+        return ret;
+    }
+
+    int moveDownStorage() {
+        int antiSum = 0;
+        for (int i=1;i<this.totalBlockMid;i++)
+        {
+            if(this.binsNum[i]!=0)
+            {
+                antiSum++;
+            }
+        }
+        return antiSum;
+    }
+
+    int stoneUpStorage() {
+        int antiSum = 0;
+        for (int i=this.totalBlockMid+1;i<this.totalBlock;i++)
+        {
+            antiSum+=this.binsNum[i];
+        }
+        return antiSum;
+    }
+
+    int stoneDownStorage() {
+        int antiSum = 0;
+        for (int i=1;i<this.totalBlockMid;i++)
+        {
+            antiSum+=this.binsNum[i];
+        }
+        return antiSum;
     }
 
     void PrintBoard() {
@@ -225,7 +314,14 @@ public class State {
         {
             if(i!=0)
             {
-                System.out.print("     " + this.binsNum[this.totalBlock-i] + "      |");
+                if(this.binsNum[this.totalBlock-i]<10)
+                {
+                    System.out.print("     " + this.binsNum[this.totalBlock-i] + "      |");
+                }
+                else
+                {
+                    System.out.print("     " + this.binsNum[this.totalBlock-i] + "     |");
+                }
             }
             else
             {
@@ -242,7 +338,14 @@ public class State {
         {
             if(i==0)
             {
-                System.out.print("|     "+this.binsNum[0]+"      ");
+                if(this.binsNum[0]<10)
+                {
+                    System.out.print("|     "+this.binsNum[0]+"      ");
+                }
+                else
+                {
+                    System.out.print("|     "+this.binsNum[0]+"     ");
+                }
             }
             else if(i==totalBlockMid-1)
             {
@@ -256,8 +359,14 @@ public class State {
 
             if(i==this.totalBlockMid-1)
             {
-                //System.out.print("=============\"\n");
-                System.out.print("      "+this.binsNum[totalBlockMid]+"     |\n");
+                if(this.binsNum[totalBlockMid]<10)
+                {
+                    System.out.print("      "+this.binsNum[totalBlockMid]+"     |\n");
+                }
+                else
+                {
+                    System.out.print("      "+this.binsNum[totalBlockMid]+"    |\n");
+                }
             }
         }
 
@@ -267,7 +376,15 @@ public class State {
         {
             if(i!=0)
             {
-                System.out.print("     "+this.binsNum[i]+"      |");
+                if(this.binsNum[i]<10)
+                {
+                    System.out.print("     "+this.binsNum[i]+"      |");
+                }
+                else
+                {
+                    System.out.print("     "+this.binsNum[i]+"     |");
+                }
+
             }
             else
             {
