@@ -54,7 +54,7 @@ public class State {
 
             if(lastMove<totalBlockMid&&lastMove>0)
             {
-                if(this.binsNum[lastMove]==1)
+                if(this.binsNum[lastMove]==1&&this.binsNum[this.totalBlock-lastMove]>0)
                 {
                     this.binsNum[lastMove]=0;
                     this.binsNum[this.totalBlockMid]+=1+this.binsNum[this.totalBlock-lastMove];
@@ -141,7 +141,7 @@ public class State {
 
             if(lastMove<totalBlock&&lastMove>totalBlockMid)
             {
-                if(this.binsNum[lastMove]==1)
+                if(this.binsNum[lastMove]==1&&this.binsNum[this.totalBlock-lastMove]>0)
                 {
                     this.binsNum[lastMove]=0;
                     this.binsNum[0]+=1+this.binsNum[this.totalBlock-lastMove];
