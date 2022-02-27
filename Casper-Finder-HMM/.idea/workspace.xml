@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1a606b8-f636-4b03-9194-d4b8f9930969" name="Default Changelist" comment="" />
+    <list default="true" id="b1a606b8-f636-4b03-9194-d4b8f9930969" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +16,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="24khzdyUfkCDI6fSJnXBU2X05py" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -64,6 +70,7 @@
       <workItem from="1644349408640" duration="294000" />
       <workItem from="1644497953210" duration="17912000" />
       <workItem from="1644523427963" duration="10414000" />
+      <workItem from="1645605429000" duration="659000" />
     </task>
     <servers />
   </component>
@@ -111,9 +118,9 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1493" height="258" key="GridCell.Tab.1.right/0.0.1536.816@0.0.1536.816" timestamp="1644526424145" />
-    <state x="465" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1644523441082">
+    <state x="465" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1645605429451">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="465" y="232" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1644523441082" />
+    <state x="465" y="232" key="com.intellij.ide.util.TipDialog/0.0.1536.816@0.0.1536.816" timestamp="1645605429451" />
   </component>
 </project>
